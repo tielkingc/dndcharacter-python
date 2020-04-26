@@ -1,0 +1,29 @@
+.listform {
+  list-style-type: none;
+}
+
+.listform li {
+  margin-top: 25px;
+}
+
+.set-width {
+  width: 35px;
+  text-align: center;
+  position: relative;
+  float: right;
+}
+
+.racesform {
+  float:left;
+}
+
+.maincontent {
+  width: 75%;
+  position: absolute;
+  left: 12.5%;
+  background-color: blue;
+}
+ .stats label {
+   position: relative;
+   background-color: green;
+ }
