@@ -1,14 +1,16 @@
 .listlabels, .inputfields {
   list-style-type: none;
+  float:left;
 }
 
 .listlabels li {
   margin-top: 25px;
 }
 
-.set-width {
+.set-width-input {
   width: 35px;
   text-align: center;
+  border-width: 2.2px;
 }
 
 .racesform {
@@ -26,9 +28,11 @@
    background-color: green;
  }
 
-.inputfields {
-  position: relative;
-  float: right;
-  padding: 10px;
-  margin: 10px;
+.inputfields li {
+    margin-top: 21.5px;
+}
+
+.stat-label {
+    border-style: solid;
+    border-width: 2.2px;
 }
