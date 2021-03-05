@@ -7,7 +7,7 @@ backgrounds = ['Acolyte', 'Charlatan', 'Criminal/Spy', 'Entertainer', 'Folk Hero
 stats = [0, 0, 0, 0, 0, 0]
 stat_mods = [0, 0, 0, 0, 0, 0]
 stat_mod_sign = [ ]
-walking_speed = 0
+walking_speed = 1
 hp = 0
 user_race = races[random.randint(0,8)]
 user_class = classes[random.randint(0,11)]
@@ -95,6 +95,8 @@ def create_character():
         hp = 8 + stat_mods[3]
     elif user_class == 'Wizard':
         hp = 6 + stat_mods[3]
+
+    #return walking_speed
 
 def printer():
     print("Race = " + user_race + " Class = " + user_class)
