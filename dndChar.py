@@ -1,6 +1,5 @@
-
 from roll import dice_roll
-"""import random
+import random
 
 races = ['Dwarf', 'Elf', 'Halfling', 'Human', 'Dragonborn',
          'Gnome', 'Half-elf', 'Half-orc', 'Tiefling']
@@ -10,66 +9,62 @@ alignment = ['Lawful Good', 'Neutral Good', 'Chaotic Good', 'Lawful Neutral',
              'Neutral', 'Chaotic Neutral', 'Lawful Evil', 'Neutral Evil', 'Chaotic Evil']
 backgrounds = ['Acolyte', 'Charlatan', 'Criminal/Spy', 'Entertainer', 'Folk Hero', 'Gladiator',
                'Hermit', 'Knight', 'Noble', 'Outlander', 'Pirate', 'Sage', 'Sailor', 'Soldier', 'Urchin']
-stats = {
-    "Race": " ",
-    "Class": " ",
-    "Walking Speed": " ",
-    "HP": 0,
-    "Alignment": " ",
-    "Background": " ",
-    "Strength": 0,
-    "Dexterity": 0,
-    "Constitution": 0,
-    "Intelligence": 0,
-    "Wisdom": 0,
-    "Charisma": 0
-}
-
 stat_mod_sign = []
-user_race = races[random.randint(0, 8)]
-user_class = classes[random.randint(0, 11)]
-user_align = alignment[random.randint(0, 8)]
-user_back = backgrounds[random.randint(0, 14)]
+
+stats = {
+    "Race": races[random.randint(0, 8)],
+    "Class": classes[random.randint(0, 11)],
+    "Walking Speed": 0,
+    "HP": 0,
+    "Alignment": alignment[random.randint(0, 8)],
+    "Background": backgrounds[random.randint(0, 14)],
+    "Strength": dice_roll.roll(6, 4),
+    "Dexterity": dice_roll.roll(6, 4),
+    "Constitution": dice_roll.roll(6, 4),
+    "Intelligence": dice_roll.roll(6, 4),
+    "Wisdom": dice_roll.roll(6, 4),
+    "Charisma": dice_roll.roll(6, 4)
+}
 
 
 def create_character():
-    if user_race == 'Dwarf':
+    if stats["Race"] == 'Dwarf':
         stats["Constitution"] += 2
-        walking_speed = 25
-    elif user_race == 'Elf':
+        stats["Walking Speed"] = 25
+    elif stats["Race"] == 'Elf':
         stats["Dexterity"] += 2
-        walking_speed = 30
-    elif user_race == 'Halfling':
+        stats["Walking Speed"] = 30
+    elif stats["Race"] == 'Halfling':
         stats["Dexterity"] += 2
-        walking_speed = 25
-    elif user_race == 'Human':
+        stats["Walking Speed"] = 25
+    elif stats["Race"] == 'Human':
         for i in [stats]:
             stats[i] += 1
-        walking_speed = 30
-    elif user_race == 'Dragonborn':
+        stats["Walking Speed"] = 30
+    elif stats["Race"] == 'Dragonborn':
         stats["Strength"] += 2
         stats["Charisma"] += 1
-        walking_speed = 30
-    elif user_race == 'Gnome':
+        stats["Walking Speed"] = 30
+    elif stats["Race"] == 'Gnome':
         stats["Intelligence"] += 2
-        walking_speed = 25
-    elif user_race == 'Half-elf':
+        stats["Walking Speed"] = 25
+    elif stats["Race"] == 'Half-elf':
         stats["Charisma"] += 2
         while i <= 2:
             he_score = random.randint(0, 7)
             stats[he_score] += 1
             i += 1
-        walking_speed = 30
-    elif user_race == 'Half-orc':
+        stats["Walking Speed"] = 30
+    elif stats["Race"] == 'Half-orc':
         stats["Strength"] += 2
         stats["Constitution"] += 1
-        walking_speed = 30
-    elif user_race == 'Tiefling':
+        stats["Walking Speed"] = 30
+    elif stats["Race"] == 'Tiefling':
         stats["Intelligence"] += 1
         stats["Charisma"] += 2
-        walking_speed = 30
+        stats["Walking Speed"] = 30
 
-    for y in range(0, 6):
+    """for y in range(0, 6):
         mod = stats[y] - 10
         if mod % 2 != 0:
             mod -= 1
@@ -78,57 +73,51 @@ def create_character():
         if stat_mods[x] > 0:
             stat_mod_sign.append('+')
         else:
-            stat_mod_sign.append('')
+            stat_mod_sign.append('')"""
 
-    if user_class == 'Barbarian':
-        hp = 12 + stat_mods[3]
-    elif user_class == 'Bard':
-        hp = 8 + stat_mods[3]
-    elif user_class == 'Cleric':
-        hp = 8 + stat_mods[3]
-    elif user_class == 'Druid':
-        hp = 8 + stat_mods[3]
-    elif user_class == 'Fighter':
-        hp = 10 + stat_mods[3]
-    elif user_class == 'Monk':
-        hp = 8 + stat_mods[3]
-    elif user_class == 'Paladin':
-        hp = 10 + stat_mods[3]
-    elif user_class == 'Ranger':
-        hp = 10 + stat_mods[3]
-    elif user_class == 'Rogue':
-        hp = 8 + stat_mods[3]
-    elif user_class == 'Sorcerer':
-        hp = 6 + stat_mods[3]
-    elif user_class == 'Warlock':
-        hp = 8 + stat_mods[3]
-    elif user_class == 'Wizard':
-        hp = 6 + stat_mods[3]
+    if stats["Class"] == 'Barbarian':
+        stats["HP"] += 12
+    elif stats["Class"] == 'Bard':
+        stats["HP"] += 8
+    elif stats["Class"] == 'Cleric':
+        stats["HP"] += 8
+    elif stats["Class"] == 'Druid':
+        stats["HP"] += 8
+    elif stats["Class"] == 'Fighter':
+        stats["HP"] += 10
+    elif stats["Class"] == 'Monk':
+        stats["HP"] += 8
+    elif stats["Class"] == 'Paladin':
+        stats["HP"] += 10
+    elif stats["Class"] == 'Ranger':
+        stats["HP"] += 10
+    elif stats["Class"] == 'Rogue':
+        stats["HP"] += 8
+    elif stats["Class"] == 'Sorcerer':
+        stats["HP"] += 6
+    elif stats["Class"] == 'Warlock':
+        stats["HP"] += 8
+    elif stats["Class"] == 'Wizard':
+        stats["HP"] += 6
 
     # return walking_speed
 
 
 def printer():
-    print("Race = " + user_race + " Class = " + user_class)
-    print("Walking Speed = " + str(walking_speed) + " feet" + " HP = " + str(hp))
-    print("Alignment = " + user_align + " Background = " + user_back)
+    #mod = ' Mod = '
+    print("Race = " + stats["Race"] + " Class = " + stats["Class"])
+    print("Walking Speed = " +
+          str(stats["Walking Speed"]) + " feet" + " Health = " + str(stats["HP"]))
+    print("Alignment = " + stats["Alignment"] +
+          " Background = " + stats["Background"])
     print("----------------------------")
-    print("Str = " + str(stats[0]) + ' Mod = ' +
-          stat_mod_sign[0] + str(stat_mods[0]))
-    print('Dex = ' + str(stats[1]) + ' Mod = ' +
-          stat_mod_sign[1] + str(stat_mods[1]))
-    print('Const = ' + str(stats[2]) + ' Mod = ' +
-          stat_mod_sign[2] + str(stat_mods[2]))
-    print('Int = ' + str(stats[3]) + ' Mod = ' +
-          stat_mod_sign[3] + str(stat_mods[3]))
-    print('Wis = ' + str(stats[4]) + ' Mod = ' +
-          stat_mod_sign[4] + str(stat_mods[4]))
-    print('Char = ' + str(stats[5]) + ' Mod = ' +
-          stat_mod_sign[5] + str(stat_mods[5]))
+    print("Str = " + str(stats["Strength"]))
+    print('Dex = ' + str(stats["Dexterity"]))
+    print('Const = ' + str(stats["Constitution"]))
+    print('Int = ' + str(stats["Intelligence"]))
+    print('Wis = ' + str(stats["Wisdom"]))
+    print('Char = ' + str(stats["Charisma"]))
 
 
-roll_dice()
 create_character()
-printer()"""
-
-dice_roll.d6(4)
+printer()
