@@ -14,4 +14,5 @@ class dice_roll:
             number = random.randint(1, self)
             total += number
             x += 1
-        print(total)
+        # print(total)
+        return total
