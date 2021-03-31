@@ -40,7 +40,7 @@ class Races():
             self.cha += 2
             i = 0
             while i <= 2:
-                he_score = random.randint(0, 7)
+                he_score = random.randint(0, 5)
                 sta = [self.str, self.dex, self.con,
                        self.int, self.wis, self.cha]
                 sta[he_score] += 1

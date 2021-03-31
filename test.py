@@ -1,10 +1,13 @@
-from race import Races
-import dndChar
 import random
+stre = 0
+dex = 0
+con = 0
+inte = 0
+wis = 0
+cha = 0
 
-#dice_roll.roll(20, 2)
+he_score = random.randint(0, 7)
+sta = [stre, dex, con, inte, wis, cha]
+sta[he_score] += 1
 
-print(Races.mod_bonus("Dwarf") + 2)
-
-dndChar.stats["Walking Speed"] += 2
-print(dndChar.stats["Walking Speed"])
+print(sta[he_score])

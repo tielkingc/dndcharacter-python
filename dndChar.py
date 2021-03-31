@@ -16,7 +16,6 @@ class setup():
                      'Neutral', 'Chaotic Neutral', 'Lawful Evil', 'Neutral Evil', 'Chaotic Evil']
         backgrounds = ['Acolyte', 'Charlatan', 'Criminal/Spy', 'Entertainer', 'Folk Hero', 'Gladiator',
                        'Hermit', 'Knight', 'Noble', 'Outlander', 'Pirate', 'Sage', 'Sailor', 'Soldier', 'Urchin']
-        stat_mod_sign = []
 
         stats = {
             "Race": races[random.randint(0, 8)],
@@ -35,7 +34,7 @@ class setup():
         return stats[self]
 
 
-"""def create_character():
+def create_character():
     for y in range(0, 6):
         mod = stats[y] - 10
         if mod % 2 != 0:
@@ -45,6 +44,6 @@ class setup():
         if stat_mods[x] > 0:
             stat_mod_sign.append('+')
         else:
-            stat_mod_sign.append('')"""
+            stat_mod_sign.append('')
 
 # return walking_speed

@@ -4,22 +4,31 @@ from dndclass import Classes
 
 
 def printer():
-    # setup.play("run")
-    # mod = ' Mod = '
+    race = Races(setup.play("Race"))
+    health = Classes(setup.play("Class"))
+    strength = setup.play("Strength") + race.str
+    if (strength - 10) % 2 != 0:
+        strength_mod = (strength - 1) / 2
+    else:
+        strength_mod = strength / 2
+    dexterity = setup.play("Dexterity") + race.dex
+    constitution = setup.play("Constitution") + race.con
+    intelligence = setup.play("Intelligence") + race.int
+    wisdom = setup.play("Wisdom") + race.wis
+    charisma = setup.play("Charisma") + race.cha
     print("Race = " + setup.play("Race") +
           " Class = " + setup.play("Class"))
     print("Walking Speed = " +
-          str(Races(setup.play("Race"))) + " feet" + " Health = " + str(setup.play("HP")))
+          str(race.walking) + " feet" + " Health = " + str(health.hp))
     print("Alignment = " + setup.play("Alignment") +
           " Background = " + setup.play("Background"))
     print("----------------------------")
-    print("Str = " + str(setup.play("Strength")) +
-          str(Races(setup.play("Race"))))
-    print('Dex = ' + str(setup.play("Dexterity")))
-    print('Const = ' + str(setup.play("Constitution")))
-    print('Int = ' + str(setup.play("Intelligence")))
-    print('Wis = ' + str(setup.play("Wisdom")))
-    print('Char = ' + str(setup.play("Charisma")))
+    print("Str = " + str(strength))
+    print('Dex = ' + str(dexterity))
+    print('Const = ' + str(constitution))
+    print('Int = ' + str(intelligence))
+    print('Wis = ' + str(wisdom))
+    print('Char = ' + str(charisma))
 
 
 # create_character()
